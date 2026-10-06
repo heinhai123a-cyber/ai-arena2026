@@ -164,6 +164,6 @@ Xem chi tiết tại [docs/TODO_FOR_HUMANS.md](docs/TODO_FOR_HUMANS.md) và [doc
 ---
 
 ## 11. Thông tin liên hệ & Đóng góp
-- **Tổ chức / Nhóm phụ trách:** `[TÊN NHÓM]`
+- **Tổ chức / Nhóm phụ trách:** `TriNova`
 - **Email tiếp nhận phản hồi & báo lỗi:** `[EMAIL NHÓM]`
 - **Báo sai sót văn hóa:** Mở mục "Nguồn & Trạng thái" (`#/sources`) trực tiếp trong ứng dụng để gửi thông tin đóng góp.
