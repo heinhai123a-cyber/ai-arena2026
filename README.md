@@ -4,9 +4,9 @@
 
 > Ứng dụng tương tác giúp người trẻ phối trang phục truyền thống Việt Nam theo dịp, vùng miền và phong cách cá nhân; kết hợp **Thước Remix**, **Cultural Light** và **Chuyện chiếc áo** để tự tin sáng tạo mà luôn tôn trọng bối cảnh văn hóa.
 
-- **Demo:** `[DEPLOY DEMO URL]`
-- **Repository:** `[REPOSITORY URL]`
-- **Trạng thái:** Hoàn thiện Phase 1–7 (Sẵn sàng kiểm thử, demo & thẩm định)
+- **Demo:** Chưa triển khai public
+- **Repository:** https://github.com/heinhai123a-cyber/ai-arena2026
+- **Trạng thái:** Bản phát triển hiện tại — sẵn sàng kiểm thử, demo & thẩm định
 
 > Tính năng **Thử đồ AI** là tùy chọn, cần Node.js server và Cloudflare Workers AI credentials. Không chạy được trên static hosting thuần như GitHub Pages.
 
