@@ -170,5 +170,8 @@ Xem chi tiết tại [docs/TODO_FOR_HUMANS.md](docs/TODO_FOR_HUMANS.md) và [doc
   - `tranvuthuyminh030407@gmail.com`
   - `haimoc2109a@gmail.com`
   - `vantruong272007@gmail.com`
-- **Email tiếp nhận phản hồi & báo lỗi:** `haimoc2109a@gmail.com`
+- **Email tiếp nhận phản hồi & báo lỗi:**
+  - `tranvuthuyminh030407@gmail.com`
+  - `haimoc2109a@gmail.com`
+  - `vantruong272007@gmail.com`
 - **Báo sai sót văn hóa:** Mở mục "Nguồn & Trạng thái" (`#/sources`) trực tiếp trong ứng dụng để gửi thông tin đóng góp.
