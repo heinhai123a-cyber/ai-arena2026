@@ -1,0 +1,45 @@
+{
+  "name": "ai-arena",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "node --env-file-if-exists=.env --watch server/index.js",
+    "dev:web": "wait-on http://127.0.0.1:8787/api/health && vite",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "test": "tsx --test tests/app.test.ts tests/tryOn.test.ts",
+    "test:watch": "tsx --test --watch tests/app.test.ts tests/tryOn.test.ts",
+    "typecheck": "tsc --noEmit",
+    "validate:content": "tsx tests/validateContent.ts",
+    "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=22.9"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "lucide-react": "^1.48.0",
+    "multer": "^2.4.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "wait-on": "^9.5.1"
+  }
+}
