@@ -277,7 +277,7 @@ const RemixStudioPage: React.FC = () => {
     const activeVariantsCount = prefs.accessoryVariants?.length || 0;
 
     return (
-      <div className="bronze-mirror-panel" style={{ position: 'relative' }}>
+      <div className="bronze-mirror-panel">
         {/* Heritage Corner Ornaments */}
         <HeritageOrnament variant="corner" size={36} style={{ position: 'absolute', top: 4, left: 4, zIndex: 3 }} />
         <HeritageOrnament variant="corner" size={36} style={{ position: 'absolute', top: 4, right: 4, zIndex: 3, transform: 'rotate(90deg)' }} />
@@ -476,10 +476,9 @@ const RemixStudioPage: React.FC = () => {
   // MAIN RENDER
   // ═══════════════════════════════════════
   return (
-    <div className="page" style={{ paddingBottom: 'var(--space-16)' }}>
+    <div className="page studio-page">
       {/* ── IMPERIAL ATELIER BANNER ── */}
       <div className="atelier-banner" style={{
-        marginTop: 'calc(-1 * var(--space-6))',
         marginBottom: 'var(--space-6)',
       }}>
         {/* Full-bleed dragon pattern background */}
@@ -1057,9 +1056,61 @@ const RemixStudioPage: React.FC = () => {
                     ))}
                   </div>
                 )}
+
+                {/* ── Action: Bước trước cho cột bên trái ── */}
+                <div className="workspace-left-action">
+                  <button
+                    type="button"
+                    onClick={handleBack}
+                    className="btn btn-secondary"
+                    disabled={step === 1}
+                    style={{
+                      borderRadius: 'var(--radius-full)',
+                      borderColor: 'var(--color-gold)',
+                    }}
+                  >
+                    <ArrowLeft size={16} />
+                    Bước trước
+                  </button>
+                </div>
               </div>
               <aside className="studio-live-preview-col">
-                {renderLivePreview()}
+                <div className="preview-panel-card-wrapper">
+                  <div className="preview-panel-content">
+                    {renderLivePreview()}
+                  </div>
+                  <div className="preview-panel-action-area">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      className="btn btn-secondary mobile-only-back-btn"
+                      disabled={step === 1}
+                      style={{
+                        borderRadius: 'var(--radius-full)',
+                        borderColor: 'var(--color-gold)',
+                      }}
+                    >
+                      <ArrowLeft size={16} />
+                      Bước trước
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      className="btn btn-primary btn-lg preview-next-btn"
+                      disabled={!canContinue()}
+                      style={{
+                        borderRadius: 'var(--radius-full)',
+                        padding: 'var(--space-3) var(--space-8)',
+                        boxShadow: '0 6px 18px rgba(139, 26, 26, 0.3)',
+                        background: 'linear-gradient(135deg, #8B1A1A 0%, #C2272D 100%)',
+                        border: '1.5px solid var(--color-gold)',
+                      }}
+                    >
+                      Tiếp theo →
+                    </button>
+                  </div>
+                </div>
               </aside>
             </div>
           )}
@@ -1309,43 +1360,41 @@ const RemixStudioPage: React.FC = () => {
           })()}
         </div>
 
-        {/* ── STEP NAVIGATION DOCK ── */}
-        <div className="step-nav-dock">
-          <button
-            onClick={handleBack}
-            className="btn btn-secondary"
-            disabled={step === 1}
-            style={{
-              borderRadius: 'var(--radius-full)',
-              borderColor: 'var(--color-gold)',
-            }}
-          >
-            <ArrowLeft size={16} />
-            Bước trước
-          </button>
+        {/* ── STEP NAVIGATION DOCK (Chỉ dùng cho Hồi 6 - Bước cuối cùng) ── */}
+        {step === TOTAL_STEPS && (
+          <div className="step-nav-dock">
+            <button
+              type="button"
+              onClick={handleBack}
+              className="btn btn-secondary"
+              disabled={false}
+              style={{
+                borderRadius: 'var(--radius-full)',
+                borderColor: 'var(--color-gold)',
+              }}
+            >
+              <ArrowLeft size={16} />
+              Bước trước
+            </button>
 
-          <button
-            onClick={handleNext}
-            className="btn btn-primary btn-lg"
-            disabled={!canContinue()}
-            style={{
-              borderRadius: 'var(--radius-full)',
-              padding: 'var(--space-3) var(--space-8)',
-              boxShadow: '0 6px 18px rgba(139, 26, 26, 0.3)',
-              background: 'linear-gradient(135deg, #8B1A1A 0%, #C2272D 100%)',
-              border: '1.5px solid var(--color-gold)',
-            }}
-          >
-            {step === TOTAL_STEPS ? (
-              <>
-                <Wand2 size={18} />
-                Hoàn tất & Khởi tạo Bản Phối
-              </>
-            ) : (
-              'Tiếp theo →'
-            )}
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={handleNext}
+              className="btn btn-primary btn-lg"
+              disabled={!canContinue()}
+              style={{
+                borderRadius: 'var(--radius-full)',
+                padding: 'var(--space-3) var(--space-8)',
+                boxShadow: '0 6px 18px rgba(139, 26, 26, 0.3)',
+                background: 'linear-gradient(135deg, #8B1A1A 0%, #C2272D 100%)',
+                border: '1.5px solid var(--color-gold)',
+              }}
+            >
+              <Wand2 size={18} />
+              Hoàn tất & Khởi tạo Bản Phối
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -162,6 +162,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + var(--space-4));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -184,6 +185,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
 }
 
 img, svg {
@@ -819,6 +828,9 @@ input, textarea, select {
 .nav {
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   background: rgba(92, 15, 15, 0.95);
   backdrop-filter: blur(20px);
@@ -1210,6 +1222,12 @@ input, textarea, select {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .studio-step-pane {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   /* Heritage Layer — disable line-draw & parallax */
@@ -2144,12 +2162,122 @@ input, textarea, select {
 @media (min-width: 992px) {
   .studio-workspace-grid {
     grid-template-columns: minmax(0, 1fr) 380px !important;
+    align-items: start;
   }
   .studio-live-preview-col {
     position: sticky;
-    top: 96px;
+    top: calc(var(--nav-height) + var(--space-4));
     z-index: 20;
   }
+}
+
+@media (max-height: 750px) {
+  .studio-live-preview-col {
+    position: static !important;
+  }
+}
+
+/* ── Remix Studio Main Container ── */
+.studio-page {
+  padding-top: 0;
+  padding-bottom: var(--space-16);
+  position: relative;
+}
+
+.studio-page .atelier-banner {
+  margin-top: 0;
+  margin-bottom: var(--space-6);
+}
+
+.studio-step-pane {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+  position: relative;
+}
+
+.studio-page section,
+.studio-page [aria-labelledby="character-picker-heading"] {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+}
+
+/* ── Preview Panel Wrapper & Dedicated Footer ── */
+.preview-panel-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.preview-panel-content {
+  width: 100%;
+}
+
+.preview-panel-action-area {
+  margin-top: var(--space-4);
+  padding-bottom: var(--space-2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+  .preview-panel-action-area .preview-next-btn {
+    width: 100% !important;
+    justify-content: center;
+  }
+  .mobile-only-back-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .workspace-left-action {
+    display: none !important;
+  }
+  .preview-panel-action-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    border-top: 2px solid var(--color-gold-soft);
+    padding-top: var(--space-4);
+    margin-top: var(--space-5);
+  }
+  .preview-panel-action-area::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+  }
+  .mobile-only-back-btn {
+    display: inline-flex !important;
+  }
+}
+
+.workspace-left-action {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 2px solid var(--color-gold-soft);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.workspace-left-action::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--color-gold);
 }
 
 @keyframes goldPulse {
@@ -2719,8 +2847,7 @@ input, textarea, select {
 
 /* ── Bronze Mirror Preview Panel (Gương Đồng Thử Đồ) ── */
 .bronze-mirror-panel {
-  position: sticky;
-  top: 96px;
+  position: relative;
   background: linear-gradient(180deg, #FFFEFB 0%, #FAF5EC 100%);
   border: 2.5px solid var(--color-gold);
   border-radius: var(--radius-2xl);
