@@ -690,7 +690,7 @@ const SourcesPage: React.FC = () => {
                           </p>
                         </div>
 
-                        {/* Evidence Box */}
+                        {/* Verification Tasks Box */}
                         <div style={{
                           background: 'rgba(255, 255, 255, 0.7)',
                           border: '1.5px solid rgba(46, 107, 86, 0.3)',
@@ -707,11 +707,13 @@ const SourcesPage: React.FC = () => {
                             display: 'block',
                             marginBottom: '4px',
                           }}>
-                            🛡️ CHỨNG TỪ XÁC THỰC HIỆN VẬT:
+                            🛡️ NHIỆM VỤ ĐỐI CHIẾU & XÁC MINH:
                           </span>
-                          <p className="body-sm" style={{ margin: 0, lineHeight: 1.6, color: 'var(--color-ink)' }}>
-                            {source.verificationEvidence}
-                          </p>
+                          <ul style={{ margin: 0, paddingLeft: '1.2rem', lineHeight: 1.6, color: 'var(--color-ink)' }} className="body-sm">
+                            {source.verificationTasks.map((task, idx) => (
+                              <li key={idx}>{task}</li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
 
@@ -790,22 +792,21 @@ const SourcesPage: React.FC = () => {
                         </div>
 
                         <div className="flex items-center gap-3">
-                          {/* Verification Endorsement */}
+                          {/* Candidate Status Badge */}
                           <span style={{
                             fontSize: '11px',
-                            color: '#8B1A1A',
+                            color: '#2E6B56',
                             fontWeight: 700,
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '4px',
-                            background: 'rgba(139, 26, 26, 0.05)',
+                            background: 'rgba(46, 107, 86, 0.08)',
                             padding: '3px 9px',
                             borderRadius: '4px',
-                            border: '1px solid rgba(139, 26, 26, 0.2)',
+                            border: '1px solid rgba(46, 107, 86, 0.2)',
                           }}>
-                            <span>✦ Phê chuẩn:</span>
-                            <span>{source.verifiedBy}</span>
-                            <span style={{ opacity: 0.7 }}>({source.verifiedAt})</span>
+                            <span>✦ Đề cử tra cứu:</span>
+                            <span>{source.verificationTasks.length} nhiệm vụ xác minh</span>
                           </span>
 
                           {/* Expand Details Button */}

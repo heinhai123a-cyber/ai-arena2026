@@ -120,10 +120,10 @@ export const accessories: Accessory[] = [
     name: 'Nón & Mấn',
     category: 'Phụ kiện đầu',
     variants: [
-      { id: 'non-la', name: 'Nón lá truyền thống', description: 'Nón lá nón bài thơ che nghiêng duyên dáng', compatibleGarments: ['ao-dai', 'ao-ba-ba', 'ao-tu-than'], remixRange: [0, 70] },
+      { id: 'non-la', name: 'Nón lá', description: 'Nón lá nón bài thơ che nghiêng duyên dáng', compatibleGarments: ['ao-dai', 'ao-ba-ba', 'ao-tu-than'], remixRange: [0, 70] },
       { id: 'man-doi-dau', name: 'Mấn đội đầu hoàng gia', description: 'Mấn nhung/gấm cuốn tóc đính ngọc quý phái', compatibleGarments: ['ao-dai', 'ao-ngu-than'], remixRange: [0, 60] },
       { id: 'khan-dong', name: 'Khăn đóng truyền thống', description: 'Khăn đóng xếp nếp chỉn chu trang trọng', compatibleGarments: ['ao-ngu-than', 'ao-dai'], remixRange: [0, 50] },
-      { id: 'non-quai-thao', name: 'Nón quai thao Bắc Bộ', description: 'Nón quai thao tròn lớn với quai lụa buông dài', compatibleGarments: ['ao-tu-than', 'ao-dai'], remixRange: [0, 40] },
+      { id: 'non-quai-thao', name: 'Nón quai thao', description: 'Nón quai thao tròn lớn với quai lụa buông dài', compatibleGarments: ['ao-tu-than', 'ao-dai'], remixRange: [0, 40] },
       { id: 'mu-beret', name: 'Mũ beret Đông Dương', description: 'Mũ beret phong cách tân cổ điển Pháp-Việt', compatibleGarments: ['ao-dai', 'ao-ba-ba'], remixRange: [40, 100] },
     ],
   },

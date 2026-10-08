@@ -112,8 +112,8 @@ const CountUp: React.FC<{ to: number; suffix?: string; duration?: number }> = ({
       raf = requestAnimationFrame(tick);
     };
     if (!('IntersectionObserver' in window)) {
-      setVal(to);
-      return;
+      raf = requestAnimationFrame(() => setVal(to));
+      return () => cancelAnimationFrame(raf);
     }
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {

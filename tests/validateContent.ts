@@ -250,7 +250,8 @@ function validateResearchSources(result: ValidationResult) {
     }
     seenIds.add(source.id);
 
-    if (!source.title || !source.researchScope || source.verificationTasks.length === 0) {
+    const tasks = Array.isArray(source.verificationTasks) ? source.verificationTasks : [];
+    if (!source.title || !source.researchScope || tasks.length === 0) {
       result.errors.push(`[SOURCE_CANDIDATE] ${source.id}: thiếu tên, phạm vi tra cứu hoặc việc cần xác minh`);
     }
     if (source.relatedGarments.length === 0) {
