@@ -903,34 +903,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* ── FOOTER ── */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-inner">
-            <div>
-              <p style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 700,
-                color: 'var(--color-gold-bright)',
-                marginBottom: 'var(--space-1)',
-                fontSize: 'var(--text-lg)',
-              }}>
-                Việt Phục Remix
-              </p>
-              <p className="caption" style={{ color: 'rgba(255, 253, 248, 0.5)' }}>
-                Bản demo — không phải sản phẩm chính thức
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <Link to="/sources" className="nav-link" style={{ fontSize: 'var(--text-sm)' }}>Nguồn tham khảo</Link>
-              <Link to="/culture" className="nav-link" style={{ fontSize: 'var(--text-sm)' }}>Về văn hóa</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
+
 
 export default HomePage;

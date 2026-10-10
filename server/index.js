@@ -187,6 +187,18 @@ app.use((request, response, next) => {
   next();
 });
 
-app.listen(port, '0.0.0.0', () => {
+const server = app.listen(port, '0.0.0.0', () => {
   console.log(`Việt Phục Remix server listening on port ${port}`);
 });
+
+server.on('error', (err) => {
+  if (err && err.code === 'EADDRINUSE') {
+    console.warn(`Port ${port} is currently busy, waiting for release...`);
+    setTimeout(() => {
+      server.close();
+      server.listen(port, '0.0.0.0');
+    }, 1200);
+  } else {
+    console.error('Server error:', err);
+  }
+});

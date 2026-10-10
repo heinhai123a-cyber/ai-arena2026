@@ -12,6 +12,7 @@ import CulturePage from './pages/CulturePage';
 import SourcesPage from './pages/SourcesPage';
 import AiTryOnPage from './pages/AiTryOnPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { Footer } from './components/Footer';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
+        <Footer />
       </ErrorBoundary>
     </HashRouter>
   );
